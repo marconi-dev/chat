@@ -1,0 +1,45 @@
+#messages-container {
+    width: 80%;
+    height: 80%;
+}
+
+.user-message > .msg-username {
+    margin: -15px 0px 0px -10px;
+    align-self: flex-start;
+    background-color: rgb(47, 132, 181);
+    padding: 5px 10px;
+    font: smaller;
+    border-radius: 0px 0px 10px 0px;
+    max-width: fit-content;
+
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.814);
+}
+
+.msg-item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.368);
+    padding: 15px 10px;
+}
+
+.msg-username {
+    margin: -15px -10px 0px 0px;
+    align-self: end;
+    background-color: rgba(47, 132, 181, 0.297);
+    padding: 5px 10px;
+    font: smaller;
+    border-radius: 0px 0px 0px 10px;
+    max-width: fit-content;
+
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.814);
+}
+
+.msg-body {
+    margin: 10px 0px 0px 0px;
+    font: large;
+    color: rgba(2, 20, 37, 0.77);
+}

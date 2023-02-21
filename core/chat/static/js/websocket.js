@@ -6,27 +6,24 @@ class Connection {
     startConnection() {
         const url = 'ws://192.168.1.64:8000/ws/chat/'
         const ws = new WebSocket(url)
-        
-        ws.onmessage = (e) => this.receiveMessages(e)
 
+        ws.onmessage = (e) => this.receiveMessages(e)
         return ws
     }
 
     receiveMessages(e) {
         const data = JSON.parse(e.data)
-        
+
         if (data.status === 'connected') {
-            this.send('Entrou no Chat')
+            this.send('Entrou no chat...')
+            return
         }
+        const msgBody = {
+            'msg':data.msg,
+            'user':data.user
+        } 
 
-        if (data.type === 'message') {
-            const msgBody = {
-                msg: data.msg,
-                user: data.user
-            }
-            Chat.appendMsg(msgBody)
-        }
-
+        Chat.appendMsg(msgBody)
         console.log(data)
     }
 

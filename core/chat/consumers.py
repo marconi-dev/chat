@@ -7,7 +7,8 @@ class ChatConsumer(AsyncJsonWebsocketConsumer):
 
     async def receive_json(self, text_data):
         user = text_data['user']
-        msg = text_data['msg']
+        msg = text_data['msg']  
+
         data = {
             'type':'message',
             'msg':msg, 

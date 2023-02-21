@@ -48,7 +48,7 @@ class Chat {
     }
 
     static createMsgContainerItems(user, msg) {
-        const username = document.createElement('h4')
+        const username = document.createElement('h5')
         username.className = 'msg-username'
         username.innerText = user
 
@@ -64,6 +64,10 @@ class Chat {
 
         const container = document.createElement('div')
         container.className = 'msg-item'
+
+        if (user == localStorage.getItem('username')) {
+            container.classList.add('user-message')
+        }
         items.forEach((item) => container.appendChild(item))
 
         const messages = document.querySelector('#messages-container')
