@@ -1,11 +1,16 @@
-#username-form {
+#messages-container {
+    width: 80%;
+    height: 80%;
+}
+
+#chat-form {
     margin: auto;
     width: fit-content;
     display: flex;
     justify-content: center;
 }
 
-#username-form > input {
+#chat-form > input {
     color: rgb(2, 39, 53);
     border: none;
     font-size: large;
@@ -13,17 +18,17 @@
     padding: 15px;
 }
 
-#username-input {
+#chat-input {
     border-radius: 10px 0px 0px 10px;
     outline: none;
 }
 
-#username-input:focus {
+#chat-input:focus {
     background-color: rgb(246, 252, 255);
     box-shadow: 1px 1px 1px rgba(91, 91, 91, 0.181);
 }
 
-#username-submit {
+#chat-submit {
     cursor: pointer;
     background-color: rgb(47, 132, 181);
     color: rgb(255, 255, 255) !important;
@@ -31,12 +36,12 @@
 }
 
 @media (max-width:600px){
-    #username-form {
+    #chat-form {
         flex-direction: column;
         gap: 20px;
     }
 
-    #username-input, #username-submit {
+    #chat-input, #chat-submit {
         border-radius: 20px;
     }
 }
