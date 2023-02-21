@@ -72,6 +72,7 @@ class Chat {
 
         const messages = document.querySelector('#messages-container')
         messages.appendChild(container)
+        messages.scrollTop = messages.scrollHeight
 
     }
 }
