@@ -59,13 +59,13 @@ class Chat {
         return [username, body]
     }
 
-    static appendMsg = ({user, msg}) => {
+    static appendMsg = ({user, msg, unique_id}) => {
         const items = Chat.createMsgContainerItems(user, msg)
 
         const container = document.createElement('div')
         container.className = 'msg-item'
 
-        if (user == localStorage.getItem('username')) {
+        if (unique_id == localStorage.getItem('id')) {
             container.classList.add('user-message')
         }
         items.forEach((item) => container.appendChild(item))
