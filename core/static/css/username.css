@@ -1,0 +1,42 @@
+#username-form {
+    margin: auto;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+#username-form > input {
+    color: rgb(2, 39, 53);
+    border: none;
+    font-size: large;
+    font-weight: bolder;
+    padding: 15px;
+}
+
+#username-input {
+    border-radius: 10px 0px 0px 10px;
+    outline: none;
+}
+
+#username-input:focus {
+    background-color: rgb(246, 252, 255);
+    box-shadow: 1px 1px 1px rgba(91, 91, 91, 0.181);
+}
+
+#username-submit {
+    cursor: pointer;
+    background-color: rgb(47, 132, 181);
+    color: rgb(255, 255, 255) !important;
+    border-radius: 0px 10px 10px 0px;
+}
+
+@media (max-width:600px){
+    #username-form {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #username-input, #username-submit {
+        border-radius: 20px;
+    }
+}

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/username.css' %}">
     <link rel="stylesheet" href="{% static 'css/chat.css' %}">
     <link rel="stylesheet" href="{% static 'css/msg.css' %}">
+    <script>let url = '{{ websocket_url }}'</script>
     <title>Chat</title>
 </head>
 <body>
@@ -19,6 +20,7 @@
     <script src="{% static 'js/Chat.js' %}"></script>
     
     <script src="{% static 'js/websocket.js' %}"></script>
-    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/app.js' %}">
+    </script>
 </body>
 </html>
