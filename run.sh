@@ -10,4 +10,4 @@
 # Uso:
 # ------------------------------------------------------------
 
-cd core && daphne core.asgi:application
+cd core && daphne -b 0.0.0.0 core.asgi:application
