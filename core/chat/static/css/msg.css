@@ -2,7 +2,7 @@
 #messages-container {
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    overflow-y: scroll;
     width: 95%;
     height: 80%;
 }
