@@ -48,6 +48,10 @@
     color: rgba(0, 0, 0, 0.814);
 }
 
+.msg-username:hover {
+    cursor: pointer;
+}
+
 .msg-body {
     margin: 10px 0px 0px 0px;
     font: large;
