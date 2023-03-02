@@ -1,3 +1,16 @@
+#username-container {
+    max-width: 469px;
+}
+
+#username-hint-paragraph {
+    margin: 25px auto;
+    font-style: italic;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.7);
+}
+
 #username-form {
     margin: auto;
     width: fit-content;
@@ -31,6 +44,10 @@
 }
 
 @media (max-width:600px){
+    #username-hint-paragraph {
+        width: 70%;
+    }
+
     #username-form {
         flex-direction: column;
         gap: 20px;

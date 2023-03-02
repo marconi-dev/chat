@@ -23,7 +23,9 @@ class Username {
         form.id = "username-form"
         form.onsubmit = ((e) => this.handleSubmit(e))
         form.on
-        root.appendChild(form)
+
+        const container = document.querySelector('#username-container')
+        container.appendChild(form)
 
         return form
     }
@@ -39,8 +41,27 @@ class Username {
         app.main()
     }
 
+    addHint() {
+        const hint_p = document.createElement('p')
+        hint_p.id = 'username-hint-paragraph'
+        hint_p.innerText = (
+            'Clique em seu nome de usuário para alterá-lo a qualquer momento...'
+        )
+        
+        const container = document.querySelector('#username-container')
+        container.appendChild(hint_p)
+    }
+
+    createContainer() {
+        const container = document.createElement('div')
+        container.id = 'username-container'
+        root.appendChild(container)
+    }
+
     render() {
         redraw()
+        this.createContainer()
+        this.addHint()
         const form = this.makeForm()
         this.makeInputs(form)
     }
