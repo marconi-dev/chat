@@ -6,6 +6,11 @@ class Chat {
     makeMessages() {
         const messages = document.createElement('div')
         messages.id = 'messages-container'
+
+        const spacer = document.createElement('div')
+        spacer.id = 'messages-spacer'
+
+        messages.appendChild(spacer)
         root.appendChild(messages)
     }
 
@@ -25,12 +30,12 @@ class Chat {
         msg.name = 'msg'
         msg.placeholder = "Escreva uma mensagem..."
         msg.required = true
+        msg.autocomplete = "off"
 
         const submit = document.createElement('input')
         submit.id = 'chat-submit'
         submit.value = 'Enviar'
         submit.type = 'submit'
-
 
         form.appendChild(msg)
         form.appendChild(submit)
@@ -47,6 +52,8 @@ class Chat {
         const msg = e.target.msg.value
         this.chat.send(msg)
         e.target.msg.value = ""
+
+        document.querySelector('#chat-input').focus()
     }
 
     static createMsgContainerItems(user, msg) {
