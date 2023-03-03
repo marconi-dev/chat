@@ -12,6 +12,7 @@
 }
 
 .msg-item {
+    animation: fade-in-msg 300ms;
     align-self: end;
     width: 80%;
     display: flex;
@@ -46,14 +47,30 @@
 
     font-style: italic;
     color: rgba(0, 0, 0, 0.814);
+    transition: 300ms;
 }
 
 .msg-username:hover {
     cursor: pointer;
+    background-color: rgb(3, 3, 75);
+    color: rgba(255, 255, 255, 0.856);
 }
 
 .msg-body {
     margin: 10px 0px 0px 0px;
     font: large;
     color: rgba(2, 20, 37, 0.77);
+}
+
+@keyframes fade-in-msg {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(0px);    
+    }
+    to {
+        opacity: 1;
+    }
 }

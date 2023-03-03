@@ -28,7 +28,15 @@
     background-color: rgb(47, 132, 181);
     color: rgb(255, 255, 255) !important;
     border-radius: 0px 10px 10px 0px;
+    transition: 300ms;
+    outline: none;
 }
+
+#chat-submit:hover {
+    background-color: rgb(3, 3, 75);
+}
+
+
 
 @media (max-width:600px){
     #chat-form {
