@@ -40,7 +40,7 @@ class Connection {
     }
 
     changeUsername = () => {
-        const usernames = document.querySelectorAll('div.msg-item.user-message') 
+        const usernames = document.querySelectorAll('h5.msg-username') 
         usernames.forEach((name) => {
             name.addEventListener('click', (e) => {
                 this.websocket.close()
