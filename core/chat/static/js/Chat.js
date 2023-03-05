@@ -1,6 +1,7 @@
 class Chat {
     constructor() {
         this.chat = new Connection()
+        this.render()
     }
 
     makeMessages() {

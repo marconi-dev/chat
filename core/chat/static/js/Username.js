@@ -1,4 +1,5 @@
 class Username {
+    constructor() {this.render()}
 
     makeInputs = (form) => {
         const textInput = document.createElement('input')
