@@ -20,10 +20,11 @@ class Username {
     }
 
     makeForm = () => {
-        const form = document.createElement('form')
-        form.id = "username-form"
-        form.onsubmit = ((e) => this.handleSubmit(e))
-        form.on
+        const form = makeHTMLElement({
+            type:      'form',
+            id:        'username-form',
+            onsubmit : (e) => this.handleSubmit(e)
+        })
 
         const container = document.querySelector('#username-container')
         container.appendChild(form)
@@ -46,11 +47,10 @@ class Username {
         const hint_p = document.createElement('p')
         hint_p.id = 'username-hint-paragraph'
         hint_p.innerText = (
-            'Clique em seu nome de usuário para alterá-lo a qualquer momento...'
+            'Clique em seu nome de usuário para alterá-lo a qualquer momento..'
         )
         
-        const container = document.querySelector('#username-container')
-        container.appendChild(hint_p)
+        document.querySelector('#username-container').appendChild(hint_p)
     }
 
     createContainer() {
