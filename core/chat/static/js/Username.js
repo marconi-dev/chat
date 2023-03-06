@@ -4,7 +4,6 @@ class Username {
     makeInputs = (form) => {
         const textValues = {
             HTMLtype     : 'input',
-            
             placeholder  : 'Username...',
             type         : 'text',
             required     : true, 
@@ -14,7 +13,6 @@ class Username {
         }
         const submitValues = {
             HTMLtype : 'input',
-            
             id       : 'username-submit',
             type     : 'submit',
             value    : 'Ir para o Chat'
@@ -27,7 +25,6 @@ class Username {
     makeForm = () => {
         const form = makeHTMLElement({
             HTMLtype : 'form',
-
             id       : 'username-form',
             onsubmit : (e) => this.handleSubmit(e)
         })
@@ -50,16 +47,15 @@ class Username {
     }
 
     addHint() {
-        const values = {
-            HTMLtype  : 'p',
+        const txt = 
+        'Clique em seu nome de usuário para alterá-lo a qualquer momento...'
 
+        const hint = makeHTMLElement({
+            HTMLtype  : 'p',
             id        : 'username-hint-paragraph',
-            innerText : (
-                'Clique em seu nome de usuário para alterá-lo \
-                a qualquer momento...'
-            )
-        }
-        const hint = makeHTMLElement(values)
+            innerText : txt
+        })
+        
         const container = document.querySelector('#username-container')
         container.appendChild(hint)
     }
@@ -67,7 +63,6 @@ class Username {
     createContainer() {
         const values = {
             HTMLtype : 'div',
-            
             id       : 'username-container'
         }
         const container = makeHTMLElement(values) 

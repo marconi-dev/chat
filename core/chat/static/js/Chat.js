@@ -5,41 +5,49 @@ class Chat {
     }
 
     makeMessages() {
-        const messages = document.createElement('div')
-        messages.id = 'messages-container'
-
-        const spacer = document.createElement('div')
-        spacer.id = 'messages-spacer'
-
-        messages.appendChild(spacer)
+        const messages = makeHTMLElement({
+            HTMLtype : 'div',
+            id       : 'messages-container'
+        })
         root.appendChild(messages)
+        
+        const spacer = makeHTMLElement({
+            HTMLtype : 'div',
+            id       : 'messages-spacer'
+        })
+        messages.appendChild(spacer)
     }
 
     makeForm() {
-        const form = document.createElement('form')
-        form.id = 'chat-form'
-        form.onsubmit = (e) => this.handleSubmit(e)
+        const form =  makeHTMLElement({
+            HTMLtype : 'form',
+            id       : 'chat-form',
+            onsubmit : (e) => this.handleSubmit(e)
+        })
+        
         root.appendChild(form)
-
         return form
     }
 
     makeInputs(form) {
-        const msg = document.createElement('input')
-        msg.id = 'chat-input'
-        msg.type = 'text'
-        msg.name = 'msg'
-        msg.placeholder = "Escreva uma mensagem..."
-        msg.required = true
-        msg.autocomplete = "off"
+        const msgValues = {
+            HTMLtype     : 'input',
+            id           : 'chat-input',
+            type         : 'text',
+            name         : 'msg',
+            placeholder  : 'Escreva uma mensagem...',
+            required     : true,
+            autocomplete : 'off'
+        }
+        const submitValues = {
+            HTMLtype : 'input',
+            id       : 'chat-submit',
+            value    : 'Enviar',
+            type     : 'submit'
+        }
 
-        const submit = document.createElement('input')
-        submit.id = 'chat-submit'
-        submit.value = 'Enviar'
-        submit.type = 'submit'
-
-        form.appendChild(msg)
-        form.appendChild(submit)
+        const inputs = [msgValues, submitValues]
+        inputs.map(el => form.appendChild(makeHTMLElement(el)))
     }
     
     render() {
