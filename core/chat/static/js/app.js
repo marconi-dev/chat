@@ -9,10 +9,10 @@ class App {
 
 
 function makeHTMLElement(values) {
-    const element = document.createElement(values.type)
+    const element = document.createElement(values.HTMLtype)
 
     Object.entries(values).forEach(([key, value]) => {
-        element[key] = value
+        if (key !== 'HTMLtype') element[key] = value
     });
 
     return element
