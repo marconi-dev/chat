@@ -1,5 +1,20 @@
 body {
-    background-color: rgb(187, 226, 255);
+    background: url(../sky-pattern.jpg);
+    height: 100vh;
+    background-size: contain;
+    background-position: center;
+}
+
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+
+@media (max-width: 600px) {
+    body {
+        height: auto;
+        background-size: cover
+    };
 }
 
 #root {
