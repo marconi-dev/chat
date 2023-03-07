@@ -55,7 +55,11 @@
         gap: 20px;
     }
 
-    #chat-input, #chat-submit {
+    #chat-input {
         border-radius: 20px;
+    }
+
+    #chat-submit {
+        display: none;
     }
 }
