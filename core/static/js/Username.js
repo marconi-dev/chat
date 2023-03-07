@@ -1,28 +1,33 @@
 class Username {
+    constructor() {this.render()}
 
     makeInputs = (form) => {
-        const textInput = document.createElement('input')
-        textInput.placeholder = 'Username...'
-        textInput.type = 'text'
-        textInput.required = true
-        textInput.name = 'username'
-        textInput.autocomplete = 'off'
-        textInput.id = "username-input"
-
-        const submit = document.createElement('input')
-        submit.id = "username-submit"
-        submit.type = 'submit'
-        submit.value = 'Ir para o Chat'
-
-        form.appendChild(textInput)
-        form.appendChild(submit)
+        const textValues = {
+            HTMLtype     : 'input',
+            placeholder  : 'Username...',
+            type         : 'text',
+            required     : true, 
+            name         : 'username',
+            autocomplete : 'off',
+            id           : 'username-input'
+        }
+        const submitValues = {
+            HTMLtype : 'input',
+            id       : 'username-submit',
+            type     : 'submit',
+            value    : 'Ir para o Chat'
+        }
+        
+        const inputs = [textValues, submitValues]
+        inputs.map(el => form.appendChild(makeHTMLElement(el)))
     }
 
     makeForm = () => {
-        const form = document.createElement('form')
-        form.id = "username-form"
-        form.onsubmit = ((e) => this.handleSubmit(e))
-        form.on
+        const form = makeHTMLElement({
+            HTMLtype : 'form',
+            id       : 'username-form',
+            onsubmit : (e) => this.handleSubmit(e)
+        })
 
         const container = document.querySelector('#username-container')
         container.appendChild(form)
@@ -42,19 +47,25 @@ class Username {
     }
 
     addHint() {
-        const hint_p = document.createElement('p')
-        hint_p.id = 'username-hint-paragraph'
-        hint_p.innerText = (
-            'Clique em seu nome de usuário para alterá-lo a qualquer momento...'
-        )
+        const txt = 
+        'Clique em seu nome de usuário para alterá-lo a qualquer momento...'
+
+        const hint = makeHTMLElement({
+            HTMLtype  : 'p',
+            id        : 'username-hint-paragraph',
+            innerText : txt
+        })
         
         const container = document.querySelector('#username-container')
-        container.appendChild(hint_p)
+        container.appendChild(hint)
     }
 
     createContainer() {
-        const container = document.createElement('div')
-        container.id = 'username-container'
+        const values = {
+            HTMLtype : 'div',
+            id       : 'username-container'
+        }
+        const container = makeHTMLElement(values) 
         root.appendChild(container)
     }
 

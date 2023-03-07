@@ -1,23 +1,21 @@
 class App {
-    constructor() {
-        this.main()
-    }
-    
-    usernameExists = () => {
-        const username = localStorage.getItem('username')
-        return (username !== null)
-    }
+    constructor() {this.main()}
     
     main = () => {
-        if (this.usernameExists()) {
-            const chat = new Chat() 
-            chat.render()
-            return localStorage.getItem('username')
-        } else {
-            const username = new Username()
-            username.render()
-        }
+        localStorage.getItem('username') !== null 
+        ? new Chat() : new Username()
     }
+}
+
+
+function makeHTMLElement(values) {
+    const element = document.createElement(values.HTMLtype)
+
+    Object.entries(values).forEach(([key, value]) => {
+        if (key !== 'HTMLtype') element[key] = value
+    });
+
+    return element
 }
 
 function redraw() {
