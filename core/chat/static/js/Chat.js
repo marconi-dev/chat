@@ -65,27 +65,36 @@ class Chat {
         document.querySelector('#chat-input').focus()
     }
 
+    
     static createMsgContainerItems(user, msg) {
-        const username = document.createElement('h5')
-        username.className = 'msg-username'
-        username.innerText = user
-
-        const body = document.createElement('p')
-        body.className = 'msg-body'
-        body.innerText = msg
-
+        const username = makeHTMLElement({
+            HTMLtype  : 'h5',
+            className : 'msg-username',
+            innerText : user 
+        })
+        const body = makeHTMLElement({
+            HTMLtype  : 'p',
+            className : 'msg-body',
+            innerText : msg
+        })
+        
         return [username, body]
+    }
+
+    static handleMsgOwner(unique_id, container) {
+        const storageId = localStorage.getItem('id')
+        unique_id == storageId && container.classList.add('user-message')
     }
 
     static appendMsg = ({user, msg, unique_id}) => {
         const items = Chat.createMsgContainerItems(user, msg)
-
-        const container = document.createElement('div')
-        container.className = 'msg-item'
-
-        if (unique_id == localStorage.getItem('id')) {
-            container.classList.add('user-message')
-        }
+        
+        const container = makeHTMLElement({
+            HTMLtype  : 'div',
+            className : 'msg-item'
+        })
+        
+        Chat.handleMsgOwner(unique_id, container)
         items.forEach((item) => container.appendChild(item))
 
         const messages = document.querySelector('#messages-container')
