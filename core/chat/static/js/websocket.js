@@ -31,9 +31,9 @@ class Connection {
         const data = JSON.parse(e.data)
     
         const msgBody = {
-            'msg':data.msg,
-            'user':data.user,
-            'unique_id':data.unique_id
+            'msg'       : data.msg,
+            'user'      : data.user,
+            'unique_id' : data.unique_id
         } 
 
         Chat.appendMsg(msgBody)
@@ -48,7 +48,7 @@ class Connection {
     }
 
     changeUsername = (name) => {
-        name.addEventListener('click', (e) => {
+        name.addEventListener('click', e => {
             this.websocket.close()
             new Username()
         })
@@ -57,14 +57,10 @@ class Connection {
     send = (msg) => {
         const username = localStorage.getItem('username')
         const data = JSON.stringify({
-            'msg':msg,
-            'user':username,
-            'unique_id':this.unique_id
+            'msg'       : msg,
+            'user'      : username,
+            'unique_id' : this.unique_id
         })
         this.websocket.send(data)
-    }
-
-    exit = () => {
-        
     }
 }
