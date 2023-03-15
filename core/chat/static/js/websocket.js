@@ -9,12 +9,13 @@ class Connection {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min;
-      }
+    }
       
     set_id() { 
         const firstNum = this.getRandomIntInclusive(1, 5000000)    
         const secondNum = this.getRandomIntInclusive(5000000, 999999)
         const username = localStorage.getItem('username')
+        
         const id = `${firstNum}${username}${secondNum}`
         localStorage.setItem('id', id)
         return localStorage.getItem('id')
@@ -36,18 +37,20 @@ class Connection {
         } 
 
         Chat.appendMsg(msgBody)
-        this.changeUsername()
+        this.addChangeUsername()
     }
 
-    changeUsername = () => {
+    addChangeUsername = () => {
+        // Adiciona um evento para alterar o nome de usuário
+
         const usernames = document.querySelectorAll('h5.msg-username') 
-        usernames.forEach((name) => {
-            name.addEventListener('click', (e) => {
-                this.websocket.close()
-                const u = new Username()
-                redraw()
-                u.render()
-            })
+        usernames.forEach(name => this.changeUsername(name))
+    }
+
+    changeUsername = (name) => {
+        name.addEventListener('click', (e) => {
+            this.websocket.close()
+            new Username()
         })
     }
 
