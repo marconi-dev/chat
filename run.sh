@@ -10,4 +10,4 @@
 # Uso:
 # ------------------------------------------------------------
 
-cd core && daphne -b 0.0.0.0 core.asgi:application
+cd core && python manage.py collectstatic --noinput && daphne -b 0.0.0.0 core.asgi:application
